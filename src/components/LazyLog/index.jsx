@@ -191,6 +191,7 @@ export default class LazyLog extends Component {
     width: 'auto',
     follow: false,
     scrollToLine: 0,
+    showLineNumbers: true,
     highlight: null,
     selectableLines: false,
     enableSearch: false,
@@ -550,12 +551,14 @@ export default class LazyLog extends Component {
       lineClassName,
       selectableLines,
       highlightLineClassName,
+      showLineNumbers,
     } = this.props;
     const { error } = this.state;
 
     return (
       <Fragment>
         <Line
+          showLineNumbers={showLineNumbers}
           selectable={selectableLines}
           className={lineClassName}
           highlightClassName={highlightLineClassName}
@@ -572,6 +575,7 @@ export default class LazyLog extends Component {
           ]}
         />
         <Line
+          showLineNumbers={showLineNumbers}
           selectable={selectableLines}
           key="error-line-1"
           className={lineClassName}
@@ -584,6 +588,7 @@ export default class LazyLog extends Component {
           ]}
         />
         <Line
+          showLineNumbers={showLineNumbers}
           selectable={selectableLines}
           key="error-line-2"
           className={lineClassName}
@@ -596,6 +601,7 @@ export default class LazyLog extends Component {
           ]}
         />
         <Line
+          showLineNumbers={showLineNumbers}
           selectable={selectableLines}
           key="error-line-3"
           className={lineClassName}
@@ -603,6 +609,7 @@ export default class LazyLog extends Component {
           data={[]}
         />
         <Line
+          showLineNumbers={showLineNumbers}
           selectable={selectableLines}
           key="error-line-4"
           className={lineClassName}
@@ -624,6 +631,7 @@ export default class LazyLog extends Component {
       selectableLines,
       lineClassName,
       highlightLineClassName,
+      showLineNumbers,
     } = this.props;
     const {
       highlight,
@@ -640,6 +648,7 @@ export default class LazyLog extends Component {
 
     return (
       <Line
+        showLineNumbers={showLineNumbers}
         className={lineClassName}
         highlightClassName={highlightLineClassName}
         rowHeight={rowHeight}

@@ -21,6 +21,7 @@ export default class Line extends Component {
     selectable: bool,
     style: object,
     formatPart: func,
+    showLineNumbers: bool,
     onLineNumberClick: func,
     onRowClick: func,
     className: string,
@@ -32,6 +33,7 @@ export default class Line extends Component {
     selectable: false,
     style: {},
     formatPart: null,
+    showLineNumbers: true,
     onLineNumberClick: null,
     onRowClick: null,
     className: '',
@@ -44,6 +46,7 @@ export default class Line extends Component {
       formatPart,
       highlight,
       selectable,
+      showLineNumbers,
       onLineNumberClick,
       onRowClick,
       number,
@@ -66,11 +69,15 @@ export default class Line extends Component {
 
     return (
       <div className={classes} style={lineStyle}>
-        <LineNumber
-          number={number}
-          highlight={highlight}
-          onClick={onLineNumberClick}
-        />
+        {
+          showLineNumbers && (
+            <LineNumber
+              number={number}
+              highlight={highlight}
+              onClick={onLineNumberClick}
+            />
+          )
+        }
         <LineContent
           number={number}
           onClick={onRowClick}
